@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface IServiciosRepository extends JpaRepository<Servicios,Integer> {
-    @Query(value = "select count(id_ser_disp) from servicios",nativeQuery = true)
+    @Query(value = "select count(id_ser_disp) from servicios where id_ser_disp = '1'",nativeQuery = true)
     public List<String[]> cantidadDeServicio();
 }

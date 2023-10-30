@@ -35,8 +35,7 @@ public class Tipo_ComprobanteController {
     public void eliminar(@PathVariable("id")Integer id){tdS.delete(id);}
 
     @PutMapping
-    public void modificar(@RequestBody TipoComprobanteDTO dto)
-    {
+    public void modificar(@RequestBody TipoComprobanteDTO dto) {
         ModelMapper m= new ModelMapper();
         TipoComprobante o = m.map(dto,TipoComprobante.class);
         tdS.insertar(o);

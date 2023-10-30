@@ -25,7 +25,6 @@ public class RoleController {
     private IUserService iuS;
 
     @PostMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
     public void insert(@RequestBody RoleDTO dto) {
         ModelMapper m = new ModelMapper();
         Roles b = m.map(dto, Roles.class);
@@ -47,6 +46,7 @@ public class RoleController {
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public RoleDTO listId(@PathVariable("id")Long id){
         ModelMapper m=new ModelMapper();
         RoleDTO dto=m.map(irS.listId(id),RoleDTO.class);
